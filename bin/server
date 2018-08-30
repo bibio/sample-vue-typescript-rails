@@ -1,0 +1,9 @@
+#!/bin/bash -i
+bundle install
+bundle exec foreman start -f Procfile.dev#!/bin/bas
+1
+2
+3
+#!/bin/bash -i
+bundle install
+bundle exec foreman start -f Procfile.dev

@@ -1,0 +1,24 @@
+version: '3'
+services:
+  app:
+    container_name: app
+    build: ./
+    stdin_open: true
+    tty: true
+    command: bash -c "bundle install --path vendor/bundle && yarn install && ./bin/server"
+    volumes:
+      - .:/app
+      - bundle_install:/app/vendor/bundle
+      - bundle_conf:/app/.bundle
+      - node_modules:/app/node_modules
+    ports:
+      - 3000:3000 #rails
+      - 8080:8080 #webpack-dev-server
+      - 3035:3035
+volumes:
+  bundle_install:
+    driver: local
+  bundle_conf:
+    driver: local
+  node_modules:
+    driver: local
